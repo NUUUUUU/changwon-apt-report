@@ -14,10 +14,12 @@ filters:
   supply_pyeong_max: 39
   build_year_exclude_before: 1991  # 35년 초과 제외 (2026 기준)
   old_renovate_year: 2001          # 25년 이상(이 연도 이하)은 올수리 or 저평가'상'만
-  undervalue_high_pct: 10          # 저평가 '상' 기준(%)
+  undervalue_high_pct: 10          # 저평가 '상' 기준(%) — 배지·대시보드용
+  old_unreno_undervalue: 20        # 25년+ '비수리' 구축은 저평가 ≥20%(가격메리트 매우 큼)일 때만 후보
 
 scoring:
-  weights: { price: 30, commute: 25, childcare: 25, amenity: 20 }
+  # 가격은 예산(3억) 안이면 충분 → 가중치 최소화, 통근·육아·상권 우선
+  weights: { price: 10, commute: 30, childcare: 30, amenity: 30 }
 
 diversity:
   per_complex_max: 1

@@ -86,8 +86,8 @@ def main():
             continue
         if by and by <= f["old_renovate_year"]:                 # 25년+
             if not tag_renovated(l):
-                # 비수리: 매매는 저평가 '상'만, 전세는 보수적으로 제외
-                ok = l["trade_type"] == "매매" and (l.get("undervalue_pct") or -99) >= f["undervalue_high_pct"]
+                # 비수리 구축: 매매 & 가격메리트 매우 큼(저평가≥old_unreno_undervalue)일 때만, 전세 제외
+                ok = l["trade_type"] == "매매" and (l.get("undervalue_pct") or -99) >= f["old_unreno_undervalue"]
                 if not ok:
                     continue
         final.append(l)
