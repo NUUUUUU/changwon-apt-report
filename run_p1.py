@@ -160,8 +160,8 @@ def main():
     # ⑩ 카카오톡 '나에게 보내기' (Top5 요약 + 1위 매물 링크)
     try:
         summary = notify.build_summary(top, meta)
-        link = top[0]["url"] if top else None
-        code, _ = notify.send_to_me(summary, link_url=link, button_title="1위 매물 보기")
+        link = cfg.get("report_url") or (top[0]["url"] if top else None)
+        code, _ = notify.send_to_me(summary, link_url=link, button_title="전체 리포트 보기")
         print(f"📨 카카오톡 발송: {code}")
     except Exception as e:
         print(f"⚠️ 카카오톡 발송 실패: {e}")
