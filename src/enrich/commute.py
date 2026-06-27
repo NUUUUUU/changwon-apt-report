@@ -39,3 +39,14 @@ def commute_minutes(lng: float, lat: float, w_lng: float, w_lat: float):
     if routes and routes[0].get("result_code") == 0:
         return round(routes[0]["summary"]["duration"] / 60, 1)
     return None
+
+
+def rush_commute(lng: float, lat: float, w_lng: float, w_lat: float, per_min=0.05):
+    """출근(매물→공장)+퇴근(공장→매물) 평균에 러시아워 혼잡 보정(장거리일수록↑)."""
+    go = commute_minutes(lng, lat, w_lng, w_lat)        # 출근
+    back = commute_minutes(w_lng, w_lat, lng, lat)      # 퇴근
+    vals = [v for v in (go, back) if v is not None]
+    if not vals:
+        return None
+    base = sum(vals) / len(vals)
+    return round(base * (1 + base * per_min), 1)

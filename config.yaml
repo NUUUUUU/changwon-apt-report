@@ -18,8 +18,8 @@ filters:
   old_unreno_undervalue: 20        # 25년+ '비수리' 구축은 저평가 ≥20%(가격메리트 매우 큼)일 때만 후보
 
 scoring:
-  # 가격은 예산(3억) 안이면 충분 → 가중치 최소화, 통근·육아·상권 우선
-  weights: { price: 10, commute: 30, childcare: 30, amenity: 30 }
+  # 가격은 예산(3억) 안이면 충분 → 최소화. 통근·육아 최우선, 상권 보조.
+  weights: { price: 10, commute: 35, childcare: 35, amenity: 20 }
 
 diversity:
   per_complex_max: 1
@@ -33,7 +33,12 @@ regions_gu:
   - { name: 마산회원구, cortarNo: "4812700000", lawd: "48127" }
   - { name: 마산합포구, cortarNo: "4812500000", lawd: "48125" }
   - { name: 김해시,     cortarNo: "4825000000", lawd: "48250" }
-commute_radius_km: 14   # 동 중심~직장 직선거리 사전필터(통근 30분 프록시)
+commute_radius_km: 18   # 동 중심~직장 직선거리 사전필터(러시보정 고려해 약간 넓힘)
+
+# 러시아워 보정: 통근분 = 출퇴근 양방향평균 × (1 + 평균×per_min)
+# 장거리(김해 등)일수록 가중 ↑ → 러시아워 30분 초과는 자동 필터링됨
+rush:
+  per_min: 0.05
 
 molit:
   # 국토부 LAWD_CD(법정동 5자리): 성산·의창·진해·마산회원·마산합포·김해

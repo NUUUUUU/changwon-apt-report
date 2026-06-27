@@ -11,7 +11,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 from collectors.naver import collect            # noqa: E402
 from collectors import molit                    # noqa: E402
 from filters import apply_area_filter, tag_renovated  # noqa: E402
-from enrich.commute import geocode, commute_minutes   # noqa: E402
+from enrich.commute import geocode, commute_minutes, rush_commute  # noqa: E402
 from enrich import amenity                             # noqa: E402
 from enrich import naver_review                        # noqa: E402
 import score                                           # noqa: E402
@@ -27,6 +27,7 @@ def main():
     cfg = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), "config.yaml"), encoding="utf-8"))
     w = cfg["workplace"]
     f = cfg["filters"]
+    per_min = cfg.get("rush", {}).get("per_min", 0.05)
 
     listings, _ = collect(cfg)
     print(f"① 네이버 수집: {len(listings)}건")
@@ -48,7 +49,7 @@ def main():
         if not coord_cache[key]:
             continue
         l["lng"], l["lat"] = coord_cache[key]
-        l["commute_min"] = commute_minutes(l["lng"], l["lat"], w["lng"], w["lat"])
+        l["commute_min"] = rush_commute(l["lng"], l["lat"], w["lng"], w["lat"], per_min)
         enriched.append(l)
     passed = [l for l in enriched if l["commute_min"] and l["commute_min"] <= f["max_commute_min"]]
     print(f"③ 통근 ≤{f['max_commute_min']}분: {len(passed)}건")
