@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>창원 통근권 아파트 리포트 · 2026-06-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0066cc;--ink:#1d1d1f;--mut:#7a7a7a;--mut2:#333;--hair:#e0e0e0;--div:#f0f0f0;
+--canvas:#fff;--parch:#f5f5f7;--pearl:#fafafc;--tile:#272729;--good:#1d7a3e;--goodbg:#eaf5ec;--warn:#9a6b00;--warnbg:#fdf4e3;
+--font:"SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,"Inter",sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--parch);color:var(--ink);font-size:17px;line-height:1.47;letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 50px}
+.gnav{background:#000;color:#fff;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
+.gnav b{font-size:13px;font-weight:600}.gnav .listbtn{background:#222;color:#fff;border:0;border-radius:9999px;padding:7px 14px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer}
+.hero{padding:28px 2px 16px}.eyebrow{color:var(--mut);font-size:13px}
+.hero h1{font-size:29px;font-weight:600;letter-spacing:-.02em;line-height:1.12;margin:5px 0 15px}
+.stats{display:flex;gap:9px}.stat{flex:1;background:var(--canvas);border:1px solid var(--hair);border-radius:15px;padding:14px;text-align:center}
+.stat .n{font-size:24px;font-weight:600;letter-spacing:-.02em}.stat .n.b{color:var(--blue)}.stat .n.g{color:var(--good)}.stat .l{font-size:11px;color:var(--mut);margin-top:5px}
+.oneliner{background:var(--tile);color:#fff;border-radius:15px;padding:14px 16px;margin-top:11px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.oneliner b{font-size:14px}.chip{font-size:12px;font-weight:600;border-radius:9999px;padding:4px 10px}.chip.n{background:rgba(41,151,255,.2);color:#7cc0ff}.chip.d{background:rgba(255,255,255,.15);color:#fff}
+.sec{margin:24px 2px 4px;font-size:20px;font-weight:600;letter-spacing:-.015em}.hint{color:var(--mut);font-size:12px;margin:0 2px 10px}
+.card{background:var(--canvas);border:1px solid var(--hair);border-radius:18px;padding:17px;margin-bottom:12px}
+.card.nm{background:var(--parch);border-style:dashed}
+.tline{display:flex;align-items:center;gap:9px}.rank{font-size:13px;font-weight:600;color:#fff;background:var(--ink);border-radius:9999px;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center}
+.cname{font-size:18px;font-weight:600;letter-spacing:-.015em}.score{margin-left:auto;font-size:14px;color:var(--blue);font-weight:600}
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.badges:empty{display:none}
+.badge{font-size:12px;font-weight:600;border-radius:9999px;padding:4px 9px}.badge.good{background:var(--goodbg);color:var(--good)}.badge.warn{background:var(--warnbg);color:var(--warn)}.badge.new{background:#e7f0fb;color:var(--blue)}.badge.down{background:var(--goodbg);color:var(--good)}
+.region{font-size:12px;color:var(--blue);margin-top:8px}.meta{font-size:12.5px;color:var(--mut);margin-top:3px}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:11px}.price .p{font-size:22px;font-weight:600;letter-spacing:-.02em}
+.uv{font-size:13px;font-weight:600;color:var(--mut2)}.uv.good{color:var(--good)}.uv.mid{color:var(--blue)}.uv.mut{color:var(--mut);font-weight:400}
+.ana{font-size:12px;color:var(--mut);margin-top:3px}
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px;margin-top:13px}
+.sbar{display:flex;align-items:center;gap:8px}.sbar .lab{font-size:12px;color:var(--mut2);width:28px}
+.track{flex:1;height:5px;background:var(--div);border-radius:9999px;overflow:hidden}.fill{height:100%;background:var(--blue)}
+.sbar .sv{font-size:11px;color:var(--mut);width:20px;text-align:right}
+.facts{font-size:12.5px;color:var(--mut2);margin-top:12px;border-top:1px solid var(--div);padding-top:11px}.facts b{color:var(--ink);font-weight:600}
+.actions{display:flex;gap:8px;margin-top:13px}
+.btn{font-size:14px;border-radius:9999px;padding:9px 16px;text-decoration:none;border:1px solid transparent;cursor:pointer;letter-spacing:-.01em;transition:transform .08s}.btn:active{transform:scale(.96)}
+.btn-pri{background:var(--blue);color:#fff}.btn-text{background:transparent;color:var(--blue)}
+.detail{display:none;margin-top:14px;border-top:1px solid var(--div);padding-top:14px}
+.detail h4{font-size:13.5px;font-weight:600;margin:0 0 8px}.detail h4.mt{margin-top:16px}
+table.trades{width:100%;border-collapse:collapse;font-size:12px}table.trades th,table.trades td{text-align:left;padding:5px 4px;border-bottom:1px solid var(--div);color:var(--mut2)}table.trades th{color:var(--mut);font-weight:600}
+.ddim{background:var(--parch);border-radius:11px;padding:12px;font-size:12.5px;margin-top:9px;line-height:1.6}.ddim .fine{color:var(--mut);font-size:11px;margin-top:3px}.fine{color:var(--mut);font-size:11.5px}
+.map{position:relative;height:190px;border-radius:13px;overflow:hidden;border:1px solid var(--hair);background:repeating-linear-gradient(0deg,#eef0f3 0 33px,#e7eaee 33px 34px),repeating-linear-gradient(90deg,#eef0f3 0 33px,#e7eaee 33px 34px);display:flex;align-items:center;justify-content:center}
+.mapfb{font-size:13px;color:var(--blue);background:rgba(255,255,255,.9);padding:8px 14px;border-radius:9999px;text-decoration:none;border:1px solid var(--hair)}
+.infra{font-size:12.5px;color:var(--mut2);margin-top:10px;line-height:1.7}.infra b{color:var(--ink);font-weight:600}
+.rev{border-top:1px solid var(--div);padding:9px 0 2px}.rtop{display:flex;gap:7px;align-items:center}.rtop b{font-size:12.5px}.rsrc{font-size:11px;color:var(--mut);margin-left:auto}.rq{font-size:12px;color:var(--mut2);margin-top:3px;line-height:1.5}.rq a{color:var(--blue)}
+.spark{display:flex;align-items:flex-end;gap:8px;height:62px;margin-top:4px}.tb{flex:1;text-align:center}.tbar{background:var(--blue);border-radius:3px 3px 0 0;opacity:.85}.tm{font-size:9px;color:var(--mut);margin-top:3px}
+.cmprow{background:var(--canvas);border:1px solid var(--hair);border-radius:15px;padding:13px;margin-bottom:10px}
+.ch{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.cnm{font-size:15px;font-weight:600}.csz{font-size:11.5px;color:var(--mut)}
+.st{font-size:11px;font-weight:600;border-radius:9999px;padding:3px 9px;margin-left:auto}.st.track{background:#e7f0fb;color:var(--blue)}.st.down{background:var(--goodbg);color:var(--good)}
+.cmet{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:11px}
+.cm{background:var(--parch);border-radius:9px;padding:8px 3px;text-align:center}.cm .cv{font-size:14px;font-weight:600}.cm .cl{font-size:9.5px;color:var(--mut);margin-top:3px}
+.cm.best{background:#eaf2fc}.cm.best .cv{color:var(--blue)}.cm.bestg{background:var(--goodbg)}.cm.bestg .cv{color:var(--good)}
+.cchg{display:flex;align-items:center;gap:7px;margin-top:11px;font-size:12px;color:var(--mut);border-top:1px solid var(--div);padding-top:10px;flex-wrap:wrap}.cchg b{color:var(--ink)}.cchg .ol{text-decoration:line-through}.cchg .dn{color:var(--good);font-weight:600}
+.sheetbg{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.25s;z-index:40}.sheetbg.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:560px;margin:0 auto;background:var(--canvas);border-radius:22px 22px 0 0;z-index:41;transform:translateY(105%);transition:transform .32s cubic-bezier(.32,.72,0,1);max-height:80%;display:flex;flex-direction:column;padding-bottom:18px}.sheet.open{transform:translateY(0)}
+.handle{width:38px;height:5px;background:#d0d0d5;border-radius:9999px;margin:8px auto 2px}
+.sheeth{display:flex;justify-content:space-between;padding:10px 20px 12px;font-size:18px;font-weight:600;border-bottom:1px solid var(--div)}.sheeth .x{font-size:14px;font-weight:400;color:var(--blue);cursor:pointer}
+.slist{overflow-y:auto;padding:4px 12px}.drow{display:flex;align-items:center;gap:10px;padding:13px 10px;border-bottom:1px solid var(--div);text-decoration:none;color:var(--ink)}.drow b{font-size:15px;font-weight:600}.drow .dsm{font-size:11.5px;color:var(--mut);margin-top:3px}.drow i{margin-left:auto;color:#c5c5ca;font-style:normal;font-size:20px}.drow.today b{color:var(--blue)}
+footer{max-width:560px;margin:24px auto 0;padding:22px 16px 50px;font-size:11.5px;color:var(--mut);line-height:1.7}footer b{color:var(--mut2)}
+</style></head><body>
+<nav class="gnav"><b>창원 통근권 아파트 리포트</b><button class="listbtn" onclick="openSheet()">☰ 목록</button></nav>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">신신사 창원1공장 통근 30분권 · 매매·전세 ≤3억 · 30평대 · 디딤돌</div>
+    <h1>오늘의 추천<br>아파트 Top 10</h1>
+    <div class="stats">
+      <div class="stat"><div class="n">802</div><div class="l">조건 통과</div></div>
+      <div class="stat"><div class="n b">10</div><div class="l">Top 추천</div></div>
+      <div class="stat"><div class="n g">21</div><div class="l">저평가 ‘상’</div></div>
+    </div>
+    <div class="oneliner"><b>오늘의 한 줄</b>
+      <span class="chip n">🆕 신규 4</span>
+      <span class="chip d">🔽 인하 0</span></div>
+  </section>
+  <div class="sec">🏆 매력도 Top 10</div>
+  
+    <article class="card">
+      <div class="tline"><span class="rank">1</span><span class="cname">월산마을8단지부영</span>
+        <span class="score">77.2점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">김해시 부곡동</div>
+      <div class="meta">803동 1/15 · 남동향 · 전용 80㎡(30.3평) · 2004년·22년차</div>
+      <div class="price"><span class="p">매매 1억 500</span><span class="uv good">실거래 대비 +17%</span></div>
+      <div class="ana">실거래 중위 1억 2,600</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="sv">72</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:52%"></span></span><span class="sv">52</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="sv">90</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>17.0분</b> · 🏫 주석초등학교 301m · 🧸 어린이집 <b>35</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2634221404" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl1" onclick="toggle(1)">상세 ▼</a></div>
+      <div class='detail' id='detail1'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.20</td><td>1억 1,700</td><td style='color:var(--good)'>-10%</td></tr><tr><td>2026.06.17</td><td>1억 2,300</td><td style='color:var(--good)'>-15%</td></tr><tr><td>2026.06.04</td><td>1억 5,700</td><td style='color:var(--good)'>-33%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>7,349만</b>(LTV 70%) · 필요현금 약 <b>3,151만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map1' data-lat='35.20395697882337' data-lng='128.79938233066193' data-markers="[{&quot;name&quot;: &quot;주석초등학교&quot;, &quot;x&quot;: 128.802341971926, &quot;y&quot;: 35.2027413846133, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;아이조아어린이집&quot;, &quot;x&quot;: 128.800000482465, &quot;y&quot;: 35.2043046647031, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;부곡어린이집&quot;, &quot;x&quot;: 128.8004259777846, &quot;y&quot;: 35.20408204816639, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;신나는동화어린이집&quot;, &quot;x&quot;: 128.79838408448, &quot;y&quot;: 35.205691308603, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/월산마을8단지부영,35.20395697882337,128.79938233066193' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>주석초등학교 301m</b> · 🧸 어린이집 <b>35</b> · 🛒 마트 <b>4</b> · 🏥 병원 <b>57</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>김해시아파트경매 부곡동 월산마을8단지부영 내집마련,투자추천</b><span class='rsrc'>블로그</span></div><div class='rq'>낙찰후 이사까지 책임지고 도와드립니다 부곡동 월산마을8단지부영 김해시아파트법원경매 내집마련,투자상담은 법원등록사무소 매수대리보증보험가입된 부동산전문가와 상담하세요 <a href='https://blog.naver.com/mono-no/224251121171' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>경남 김해시 부곡동 월산마을 8단지 부영 아파트 경매 (30평</b><span class='rsrc'>블로그</span></div><div class='rq'>47평) 30평형 년식/층수 2004년 15층중/4층 창원지방법원 아파트경매-경남 김해시 부곡동 월산마을 8단지 부영 아파트 월산마을 8단지 부영 아파트는 경상남도 김해시 부곡동 소재 &quot;석봉초등학교 <a href='https://blog.naver.com/lala820/224035979481' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>급매 장유 월산마을 부영8단지 30평 1.28억 가마실공원 영</b><span class='rsrc'>블로그</span></div><div class='rq'>경남 김해시 부곡동 월산마을8단지 부영 해당동/층 803동 중층 매매금액 1.33억 =&gt; 1.28억 거실기준방향 남동향 공급/전용면적 100.59㎡/80.88㎡ (30평) 방/욕실 개수 방 3, 화 <a href='https://blog.naver.com/miya-nurida/224323145930' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:39px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:32px'></div><div class='tm'>26/04</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/05</div></div><div class='tb'><div class='tbar' style='height:32px'></div><div class='tm'>26/06</div></div></div><div class='fine'>1억 6,000 → 1억 2,300</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">2</span><span class="cname">석봉마을4단지부영</span>
+        <span class="score">75.7점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">김해시 부곡동</div>
+      <div class="meta">413동 5/15 · 남동향 · 전용 80㎡(30.3평) · 2004년·22년차</div>
+      <div class="price"><span class="p">매매 1억 3,800</span><span class="uv good">실거래 대비 +11%</span></div>
+      <div class="ana">실거래 중위 1억 5,470</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="sv">53</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="sv">60</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>15.1분</b> · 🏫 월산초등학교 151m · 🧸 어린이집 <b>41</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2634507981" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl2" onclick="toggle(2)">상세 ▼</a></div>
+      <div class='detail' id='detail2'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.15</td><td>1억 8,300</td><td style='color:var(--good)'>-25%</td></tr><tr><td>2026.06.04</td><td>1억 4,500</td><td style='color:var(--good)'>-5%</td></tr><tr><td>2026.06.02</td><td>1억 7,500</td><td style='color:var(--good)'>-21%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>9,660만</b>(LTV 70%) · 필요현금 약 <b>4,140만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map2' data-lat='35.20096686805452' data-lng='128.8036158920388' data-markers="[{&quot;name&quot;: &quot;월산초등학교&quot;, &quot;x&quot;: 128.805117846128, &quot;y&quot;: 35.2015609028202, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;개나리어린이집&quot;, &quot;x&quot;: 128.8042540746064, &quot;y&quot;: 35.2012772846713, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;꿈찬어린이집&quot;, &quot;x&quot;: 128.8042831051641, &quot;y&quot;: 35.20005842626915, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;웃음둥이어린이집&quot;, &quot;x&quot;: 128.804885438794, &quot;y&quot;: 35.1995925375537, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/석봉마을4단지부영,35.20096686805452,128.8036158920388' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>월산초등학교 151m</b> · 🧸 어린이집 <b>41</b> · 🛒 마트 <b>5</b> · 🏥 병원 <b>62</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>석봉마을부영4단지아파트 30평 장유신도시 경남 김해시 부곡동.</b><span class='rsrc'>블로그</span></div><div class='rq'>오늘 소개드릴 김해경매 물건은 경남 김해시 부곡동 석봉마을4단지부영 30평 1차 2026년 2월 24일 1억4700만원 2차 2026년 3월 31일 1억290만원 석봉마을4단지부영아파트 30평 2차 <a href='https://blog.naver.com/jsojang4681/224222329946' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해시아파트경매 부곡동 석봉마을4단지부영 내집마련,투자추천</b><span class='rsrc'>블로그</span></div><div class='rq'>낙찰후 이사까지 책임지고 도와드립니다 부곡동 석봉마을4단지부영 김해시아파트법원경매 내집마련,투자상담은 법원등록사무소 매수대리보증보험가입된 부동산전문가와 상담하세요 <a href='https://blog.naver.com/mono-no/224217858064' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>행위허가_김해시 부곡동 1167번지 석봉마을4단지 부영임대아파</b><span class='rsrc'>블로그</span></div><div class='rq'>위치 김해시 부곡동 1167번지 석봉마을4단지 부영임대아파트 402동 용도 공동주택(아파트) 402동 일부호 발코니확장부분 거실 전면 발코니, 침실2 전면 발코니 확장 구조 철근콘크리트구조 설계 테 <a href='https://blog.naver.com/terrasth/224274903865' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▲</h4><div class='spark'><div class='tb'><div class='tbar' style='height:46px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:32px'></div><div class='tm'>26/02</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:32px'></div><div class='tm'>26/04</div></div><div class='tb'><div class='tbar' style='height:45px'></div><div class='tm'>26/05</div></div><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/06</div></div></div><div class='fine'>1억 6,500 → 1억 7,500</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">3</span><span class="cname">대동빌라트1단지</span>
+        <span class="score">74.0점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">진해구 자은동</div>
+      <div class="meta">112동 3/6 · 남동향 · 전용 84㎡(31.2평) · 1996년·30년차</div>
+      <div class="price"><span class="p">매매 2억 1,500</span><span class="uv good">실거래 대비 +14%</span></div>
+      <div class="ana">실거래 중위 2억 4,900</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="sv">62</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:71%"></span></span><span class="sv">71</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="sv">70</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>12.3분</b> · 🏫 자은초등학교 476m · 🧸 어린이집 <b>22</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2631389133" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl3" onclick="toggle(3)">상세 ▼</a></div>
+      <div class='detail' id='detail3'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.03.21</td><td>2억 4,000</td><td style='color:var(--good)'>-10%</td></tr><tr><td>2026.01.03</td><td>2억 5,800</td><td style='color:var(--good)'>-17%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 5,049</b>(LTV 70%) · 필요현금 약 <b>6,451만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map3' data-lat='35.15182255556227' data-lng='128.7072100757119' data-markers="[{&quot;name&quot;: &quot;자은초등학교&quot;, &quot;x&quot;: 128.711595347373, &quot;y&quot;: 35.1494877825551, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;아이스토리어린이집&quot;, &quot;x&quot;: 128.70669336770044, &quot;y&quot;: 35.15214346319647, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;하늘소어린이집&quot;, &quot;x&quot;: 128.709005762556, &quot;y&quot;: 35.1501155486212, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;성신어린이집&quot;, &quot;x&quot;: 128.706643208188, &quot;y&quot;: 35.1546802163485, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/대동빌라트1단지,35.15182255556227,128.7072100757119' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>자은초등학교 476m</b> · 🧸 어린이집 <b>22</b> · 🛒 마트 <b>5</b> · 🏥 병원 <b>66</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>진해리모델링 창원 진해구 자은동 대동빌라트1단지아파트인테...</b><span class='rsrc'>블로그</span></div><div class='rq'>내부구조도 넓게 잘 빠져 실거주하는 분들의 만족도가 높은 아파트이며 내외부관리도 잘 되고 있는 아파트입니다. 창원 진해구 자은동 대동빌라트1단지아파트  창원 진해구 자은동... <a href='https://blog.naver.com/ggdesign2018/222873666378' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>진해 자은동 대동빌라트1단지에 코콤 비디오폰 설치 후기</b><span class='rsrc'>블로그</span></div><div class='rq'>진해 자은동 대동빌라트1단지에 코콤 비디오폰 설치 후기 안녕하세요? 비디오폰 및 도어락을 전문으로... 창원시 진해구 자은동 대동빌라트1단지 입니다 비디오폰/ 도어락 설치문의, 궁금한 점이 있으시면 <a href='https://blog.naver.com/jmthankyou6588/222929487357' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>구미 인테리어 구미 원호점보타운 구축 아파트 리모델링 후기</b><span class='rsrc'>블로그</span></div><div class='rq'>특히 중문은 냉난방 효율에도 큰 영향을 주기 때문에 실거주 만족도가 매우 높은 요소 중에... 형곡 대동빌라트 형곡 동신인터빌 형곡 이구로얄맨선1차 형곡 신세계 형곡 대림베스트빌 형곡 CH새로빌 형 <a href='https://blog.naver.com/sm30860/224252876328' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/03</div></div></div><div class='fine'>2억 5,800 → 2억 4,000</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">4</span><span class="cname">석봉마을7단지부영</span>
+        <span class="score">73.1점</span></div>
+      <div class="badges"></div>
+      <div class="region">김해시 부곡동</div>
+      <div class="meta">701동 1/18 · 남동향 · 전용 80㎡(30.6평) · 2004년·22년차</div>
+      <div class="price"><span class="p">매매 1억 3,500</span><span class="uv mid">실거래 대비 +9%</span></div>
+      <div class="ana">실거래 중위 1억 4,800</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:46%"></span></span><span class="sv">46</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:57%"></span></span><span class="sv">57</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>15.7분</b> · 🏫 월산초등학교 142m · 🧸 어린이집 <b>46</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2634525783" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl4" onclick="toggle(4)">상세 ▼</a></div>
+      <div class='detail' id='detail4'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.05.22</td><td>1억 3,500</td><td style='color:var(--good)'>+0%</td></tr><tr><td>2026.05.03</td><td>1억 4,600</td><td style='color:var(--good)'>-8%</td></tr><tr><td>2026.03.23</td><td>1억 4,000</td><td style='color:var(--good)'>-4%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>9,450만</b>(LTV 70%) · 필요현금 약 <b>4,050만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map4' data-lat='35.199829389775296' data-lng='128.80664845651677' data-markers="[{&quot;name&quot;: &quot;월산초등학교&quot;, &quot;x&quot;: 128.80657472002, &quot;y&quot;: 35.2011101971334, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;찬비어린이집&quot;, &quot;x&quot;: 128.80623567305622, &quot;y&quot;: 35.19997974190846, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;바른자리어린이집&quot;, &quot;x&quot;: 128.805722451069, &quot;y&quot;: 35.2001063572386, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;웃음둥이어린이집&quot;, &quot;x&quot;: 128.804885438794, &quot;y&quot;: 35.1995925375537, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/석봉마을7단지부영,35.199829389775296,128.80664845651677' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>월산초등학교 142m</b> · 🧸 어린이집 <b>46</b> · 🛒 마트 <b>5</b> · 🏥 병원 <b>62</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>경남 김해시 부곡동 석봉마을 7단지 부영아파트 경매...</b><span class='rsrc'>블로그</span></div><div class='rq'>47평) 30평형 입찰법원 창원지방법원 년식/층수 2004년 15층중/13층 매각물건 아파트 창원지방법원- 경남 김해시 부곡동 석봉마을 7단지 부영아파트 석봉마을 7단지 부영아파트는 경상남도 김해시 <a href='https://blog.naver.com/lala820/223958435169' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해시 부곡동 석봉마을7단지부영아파트 30평(8.1)</b><span class='rsrc'>블로그</span></div><div class='rq'>오늘은 창원지방법원 사건번호:2023타경107732 경남 김해시 부곡동 1165-1 ★장유 IC 인근 아파트★ ★석봉초교 인근 아파트★ ★석봉마을7단지부영아파트★ 702동 2층 204호 30평 남동 <a href='https://blog.naver.com/1022kdy/223504084357' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>★김해시 능동로 118 장유 석봉마을 부영아파트 7단지 아파트</b><span class='rsrc'>블로그</span></div><div class='rq'>힘펠 제품으로 교체하고 있으니 많이들 문의 주세요~ 김해시 능동로 118 장유 석봉마을 부영아파트 7단지 아파트 주방 싱크대 수전 교체하는 방법은! 주방 싱크대 수도꼭지 갈기! 연휴 동안 잠시 숨  <a href='https://blog.naver.com/mhjcym4680/224184832388' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:21px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:32px'></div><div class='tm'>26/02</div></div><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/05</div></div></div><div class='fine'>1억 4,300 → 1억 4,050</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">5</span><span class="cname">합성한일타운</span>
+        <span class="score">72.0점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">마산회원구 합성동</div>
+      <div class="meta">101동 고/15 · 동향 · 전용 84㎡(31.5평) · 1994년·32년차</div>
+      <div class="price"><span class="p">매매 1억 9,300</span><span class="uv good">실거래 대비 +27%</span></div>
+      <div class="ana">실거래 중위 2억 6,500</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="sv">18</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="sv">70</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>25.4분</b> · 🏫 양덕초등학교 235m · 🧸 어린이집 <b>15</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2633383486" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl5" onclick="toggle(5)">상세 ▼</a></div>
+      <div class='detail' id='detail5'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.06</td><td>2억 6,500</td><td style='color:var(--good)'>-27%</td></tr><tr><td>2026.03.19</td><td>2억 9,400</td><td style='color:var(--good)'>-34%</td></tr><tr><td>2026.03.18</td><td>2억</td><td style='color:var(--good)'>-4%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 3,510</b>(LTV 70%) · 필요현금 약 <b>5,790만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map5' data-lat='35.23579854322922' data-lng='128.58955143639827' data-markers="[{&quot;name&quot;: &quot;양덕초등학교&quot;, &quot;x&quot;: 128.588455062051, &quot;y&quot;: 35.2338770942217, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;경남숲어린이집&quot;, &quot;x&quot;: 128.590937722381, &quot;y&quot;: 35.2343383553855, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;양덕초등학교 병설유치원&quot;, &quot;x&quot;: 128.587835043694, &quot;y&quot;: 35.2336256763938, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;글로벌아이유치원&quot;, &quot;x&quot;: 128.585638339383, &quot;y&quot;: 35.2351000561396, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/합성한일타운,35.23579854322922,128.58955143639827' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>양덕초등학교 235m</b> · 🧸 어린이집 <b>15</b> · 🛒 마트 <b>6</b> · 🏥 병원 <b>110</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>창원 마산회원구 합성동 합성한일타운 올보양</b><span class='rsrc'>블로그</span></div><div class='rq'>창원 마산회원구 합성동 합성한일타운 올보양 전 합성동 합성한일타운 엘리베이터 내부 모습입니다 후면 좌측에 작은 게시판이 있구요 양옆으로 거울과 보조층버튼이 있습니다 창원 마산회원구 합성동... <a href='https://blog.naver.com/mibbda0801/224072479852' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>창원 마산회원구 합성동 합성한일타운 아파트 인테리어  짱이야</b><span class='rsrc'>블로그</span></div><div class='rq'>http://dbdbdeep.com/ma/link.php?lncd=S00269797CC05914448Q http://dbdbdeep.com/ma/link.php?lncd=S00269797CC0591 <a href='https://blog.naver.com/ellinformal/224208036509' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>마산회원구 양덕동 한일타운2... 코콤 7인치 비디오폰 설치 </b><span class='rsrc'>블로그</span></div><div class='rq'>오늘의 소개 이야기는 창원시 마산회원구 양덕동 한일타운2차아파트에 코콤 7인치 아날로그 비디오폰 KCV-S701 설치 후기입니다~ 창원 마산회원구 한일타운2차아파트는 904세대, 총 8개동으로 19 <a href='https://blog.naver.com/nainhomenet/224296559531' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▲</h4><div class='spark'><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/06</div></div></div><div class='fine'>2억 4,700 → 2억 6,500</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">6</span><span class="cname">진해자은벚꽃마을주공</span>
+        <span class="score">70.8점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">진해구 자은동</div>
+      <div class="meta">208동 1/9 · 남향 · 전용 75㎡(30.6평) · 2000년·26년차</div>
+      <div class="price"><span class="p">매매 1억 9,000</span><span class="uv good">실거래 대비 +11%</span></div>
+      <div class="ana">실거래 중위 2억 1,300</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="sv">53</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:67%"></span></span><span class="sv">67</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="sv">80</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:91%"></span></span><span class="sv">91</span></div></div>
+      <div class="facts">🚗 통근 <b>13.3분</b> · 🏫 덕산초등학교 264m · 🧸 어린이집 <b>22</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2633020140" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl6" onclick="toggle(6)">상세 ▼</a></div>
+      <div class='detail' id='detail6'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.04.25</td><td>2억 800</td><td style='color:var(--good)'>-9%</td></tr><tr><td>2026.01.10</td><td>2억 1,300</td><td style='color:var(--good)'>-11%</td></tr><tr><td>2026.01.02</td><td>2억 2,500</td><td style='color:var(--good)'>-16%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 3,300</b>(LTV 70%) · 필요현금 약 <b>5,700만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map6' data-lat='35.146503623404044' data-lng='128.70873711643296' data-markers="[{&quot;name&quot;: &quot;덕산초등학교&quot;, &quot;x&quot;: 128.706007040232, &quot;y&quot;: 35.1457066657186, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;예그리나어린이집&quot;, &quot;x&quot;: 128.70908086952696, &quot;y&quot;: 35.146414058879536, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;삼성아파트 어린이집&quot;, &quot;x&quot;: 128.708037865823, &quot;y&quot;: 35.1476958924606, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;덕산해군어린이집&quot;, &quot;x&quot;: 128.70969184611062, &quot;y&quot;: 35.145041883514075, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/진해자은벚꽃마을주공,35.146503623404044,128.70873711643296' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>덕산초등학교 264m</b> · 🧸 어린이집 <b>22</b> · 🛒 마트 <b>3</b> · 🏥 병원 <b>52</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>진해 자은 벚꽃마을 주공아파트 커튼 블라인드가 필요한 때</b><span class='rsrc'>블로그</span></div><div class='rq'>그럼 오늘은 자은 벚꽃마을 주공아파트 정보와 함께 시공후기 적어보도록 하겠습니다! 경상남도 창원시 진해구 진해대로921번길 10번지에 위치한 진해 자은 벚꽃마을 주공 아파트는 2000년도 준공하여  <a href='https://blog.naver.com/hong2196914/223500738444' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>진해 자은 벚꽃마을 주공아파트 커튼 블라인드로 인테리어 효과</b><span class='rsrc'>블로그</span></div><div class='rq'>창원시 진해구 진해대로921번길 10번지에 위치한 진해 자은 벚꽃마을 주공 아파트는 2000년도 준공한 곳으로 24년 차가 되었는데요. 세대수는 600세대이며 평수는 24평과 30평, 34평으로 이 <a href='https://blog.naver.com/cbart12/223511953925' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>진해아파트경매 진해자은벚꽃마을주공아파트 경매</b><span class='rsrc'>블로그</span></div><div class='rq'>소재지 경상남도 창원시 진해구 자은동 934-1, 진해자은벚꽃마을주공아파트 201동 3층 물건종별 아파트 감정가 221,000,000원 대지권 69.53㎡ (21.03) 최저가 (80%) 176,8 <a href='https://blog.naver.com/sm204380/223608517707' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/04</div></div></div><div class='fine'>2억 1,900 → 2억 800</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">7</span><span class="cname">진해석동푸르지오</span>
+        <span class="score">70.5점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">진해구 석동</div>
+      <div class="meta">105동 5/15 · 동향 · 전용 84㎡(35.1평) · 2006년·20년차</div>
+      <div class="price"><span class="p">매매 2억 5,500</span><span class="uv good">실거래 대비 +14%</span></div>
+      <div class="ana">실거래 중위 2억 9,750</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:64%"></span></span><span class="sv">64</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:77%"></span></span><span class="sv">77</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:55%"></span></span><span class="sv">55</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:91%"></span></span><span class="sv">91</span></div></div>
+      <div class="facts">🚗 통근 <b>10.8분</b> · 🏫 장복초등학교 322m · 🧸 어린이집 <b>12</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2633163096" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl7" onclick="toggle(7)">상세 ▼</a></div>
+      <div class='detail' id='detail7'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.23</td><td>3억 700</td><td style='color:var(--good)'>-17%</td></tr><tr><td>2026.06.07</td><td>3억 500</td><td style='color:var(--good)'>-16%</td></tr><tr><td>2026.05.14</td><td>2억 4,500</td><td style='color:#b23b3b'>+4%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 7,850</b>(LTV 70%) · 필요현금 약 <b>7,650만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map7' data-lat='35.1603637654669' data-lng='128.6964769894413' data-markers="[{&quot;name&quot;: &quot;장복초등학교&quot;, &quot;x&quot;: 128.695148118599, &quot;y&quot;: 35.1576714841606, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;푸르지오어린이집&quot;, &quot;x&quot;: 128.6949205430017, &quot;y&quot;: 35.160031374573954, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;장복초등학교 병설유치원&quot;, &quot;x&quot;: 128.69486943955516, &quot;y&quot;: 35.15777992626522, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;우림큰사랑어린이집&quot;, &quot;x&quot;: 128.69665189298027, &quot;y&quot;: 35.157107891071306, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/진해석동푸르지오,35.1603637654669,128.6964769894413' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>장복초등학교 322m</b> · 🧸 어린이집 <b>12</b> · 🛒 마트 <b>3</b> · 🏥 병원 <b>52</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>진해 마루철거 석동 푸르지오 마루철거 현장 후기</b><span class='rsrc'>블로그</span></div><div class='rq'>이번 현장은 창원시 진해구 석동 푸르지오 아파트 마루철거 현장입니다. 특히 이번 현장은 저희에게도... 그럼 진해 마루철거 석동 푸르지오 마루철거 포스팅을 해보도록 하겠습니다 마루철거, 그외 각종철 <a href='https://blog.naver.com/o_way/224301761420' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>진해타일 모스트타일에서 창원시 진해구 석동 푸르지오...</b><span class='rsrc'>블로그</span></div><div class='rq'>매일 00:00 - 24:00  0507-1380-1681 창원시 진해구 석동 푸르지오로 이사를 앞두고 집 분위기를 조금 더 깔끔하게 바꾸고 싶어서 타일 시공을 알아보게 되었습니다. 여러 곳을 찾아 <a href='https://blog.naver.com/happy1218-/224205307540' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>진해구 석동 푸르지오 아파트 솔리티 지문 도어락 설치 후기~</b><span class='rsrc'>블로그</span></div><div class='rq'>나인홈넷입니다~ 진해 도어락!! 오늘 포스팅할 이야기는 창원시 진해구 석동 푸르지오 아파트에 솔리티 지문 도어락 설치 후기입니다~~ 창원시 진해구 석동 푸르지오아파트는 647세대, 총 13동이고 2 <a href='https://blog.naver.com/nainhomenet/223909244435' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:39px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:31px'></div><div class='tm'>26/04</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/05</div></div><div class='tb'><div class='tbar' style='height:51px'></div><div class='tm'>26/06</div></div></div><div class='fine'>3억 2,000 → 3억 600</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">8</span><span class="cname">삼성타운</span>
+        <span class="score">67.6점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">마산합포구 산호동</div>
+      <div class="meta">101동 고/19 · 남향 · 전용 84㎡(30.6평) · 1996년·30년차</div>
+      <div class="price"><span class="p">매매 1억 8,000</span><span class="uv good">실거래 대비 +20%</span></div>
+      <div class="ana">실거래 중위 2억 2,500</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:83%"></span></span><span class="sv">83</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="sv">18</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="sv">73</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="sv">100</span></div></div>
+      <div class="facts">🚗 통근 <b>25.6분</b> · 🏫 용마초등학교 122m · 🧸 어린이집 <b>17</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2631268939" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl8" onclick="toggle(8)">상세 ▼</a></div>
+      <div class='detail' id='detail8'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.20</td><td>2억 3,000</td><td style='color:var(--good)'>-22%</td></tr><tr><td>2026.05.25</td><td>2억 2,500</td><td style='color:var(--good)'>-20%</td></tr><tr><td>2026.04.14</td><td>2억 1,000</td><td style='color:var(--good)'>-14%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 2,600</b>(LTV 70%) · 필요현금 약 <b>5,400만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map8' data-lat='35.2168144794274' data-lng='128.58408992753002' data-markers="[{&quot;name&quot;: &quot;용마초등학교&quot;, &quot;x&quot;: 128.58457068097, &quot;y&quot;: 35.2157843838663, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;파스텔어린이집&quot;, &quot;x&quot;: 128.58518361556054, &quot;y&quot;: 35.21703448186792, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;통통이어린이집&quot;, &quot;x&quot;: 128.58093803896577, &quot;y&quot;: 35.21828324518638, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;리인어린이집&quot;, &quot;x&quot;: 128.5882549550444, &quot;y&quot;: 35.215721676123884, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/삼성타운,35.2168144794274,128.58408992753002' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>용마초등학교 122m</b> · 🧸 어린이집 <b>17</b> · 🛒 마트 <b>7</b> · 🏥 병원 <b>96</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>마산합포구 산호동 삼성타운... 도어락 설치 후기 (by 나인</b><span class='rsrc'>블로그</span></div><div class='rq'>3인치 아날로그 비디오폰 KCV-X431 &amp; 코맥스 푸시풀 도어락 CDL-900MP 설치 후기입니다~~ 창원시 마산합포구 산호동 삼성타운은 448세대, 총 2동으로 1996년 1월에 준공되었습니다. <a href='https://blog.naver.com/nainhomenet/224104509680' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>창원시 마산합포구 산호동 삼성타운 아파트 노후된 거실등...</b><span class='rsrc'>블로그</span></div><div class='rq'>안녕하세요 ~^^ 창원 종합 홈마스터 입니다 창원 마산합포구 산호동 삼성타운 아파트 LED 거실등 교체 – 노후 형광등 조명 교체 시공 후기 경남 창원시 마산합포구 산호동에 위치한 삼성타운 아파트에 <a href='https://blog.naver.com/cjfgnstjsghk/224210418815' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>마산합포구 도어락 &amp; 비디오폰 설치 후기》 산호동 삼성</b><span class='rsrc'>블로그</span></div><div class='rq'>오늘은 창원시 마산합포구 산호동 삼성타운에 코맥스 CDL-900MP 지문 도어락과 코맥스 CAV-77M 비디오폰 설치 이야기 포스팅할게요~ 창원시 마산합포구 산호동 삼성타운아파트는 448세대, 총  <a href='https://blog.naver.com/key-nara221-1304/223918487719' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▲</h4><div class='spark'><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/04</div></div><div class='tb'><div class='tbar' style='height:48px'></div><div class='tm'>26/05</div></div><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/06</div></div></div><div class='fine'>2억 1,000 → 2억 3,000</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">9</span><span class="cname">율현마을동원로얄듀크1차</span>
+        <span class="score">66.4점</span></div>
+      <div class="badges"></div>
+      <div class="region">김해시 율하동</div>
+      <div class="meta">1002동 1/25 · 남향 · 전용 84㎡(33.0평) · 2013년·13년차</div>
+      <div class="price"><span class="p">매매 2억 8,500</span><span class="uv mid">실거래 대비 +9%</span></div>
+      <div class="ana">실거래 중위 3억 1,300</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:46%"></span></span><span class="sv">46</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:52%"></span></span><span class="sv">52</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:84%"></span></span><span class="sv">84</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:93%"></span></span><span class="sv">93</span></div></div>
+      <div class="facts">🚗 통근 <b>17.1분</b> · 🏫 수남초등학교 340m · 🧸 어린이집 <b>31</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2633268447" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl9" onclick="toggle(9)">상세 ▼</a></div>
+      <div class='detail' id='detail9'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.06.21</td><td>3억 1,700</td><td style='color:var(--good)'>-10%</td></tr><tr><td>2026.06.16</td><td>3억 2,000</td><td style='color:var(--good)'>-11%</td></tr><tr><td>2026.06.13</td><td>3억 1,000</td><td style='color:var(--good)'>-8%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>1억 9,950</b>(LTV 70%) · 필요현금 약 <b>8,550만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map9' data-lat='35.169877222232806' data-lng='128.81542963485091' data-markers="[{&quot;name&quot;: &quot;수남초등학교&quot;, &quot;x&quot;: 128.819081852689, &quot;y&quot;: 35.1705523908787, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;새로미어린이집&quot;, &quot;x&quot;: 128.81537532753873, &quot;y&quot;: 35.17044579528231, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;토토랑어린이집&quot;, &quot;x&quot;: 128.81474047007254, &quot;y&quot;: 35.169732544525495, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;사랑누리어린이집&quot;, &quot;x&quot;: 128.816440496325, &quot;y&quot;: 35.169139297830576, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/율현마을동원로얄듀크1차,35.169877222232806,128.81542963485091' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>수남초등학교 340m</b> · 🧸 어린이집 <b>31</b> · 🛒 마트 <b>4</b> · 🏥 병원 <b>52</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>경상남도 김해시 율하동 율현마을동원로얄듀크1차아파트...</b><span class='rsrc'>블로그</span></div><div class='rq'>경상남도 김해시 율하동 율현마을동원로얄듀크1차아파트 정보입니다. 도로명 주소 경상남도 김해시 율하2로 125 주소 경상남도 김해시 율하동 1369 율현마을동원로얄듀크1차... <a href='https://blog.naver.com/myfriendkmy/224268175706' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해시 율하동 [율현마을 동원로얄듀크1차]법원경매</b><span class='rsrc'>블로그</span></div><div class='rq'>11 [창원지법 아파트 법원경매]진행물건~ 김해시 율하동 [율현마을 동원로얄듀크1차]외관 김해시 율하동 수남초등학교 남서측 평지에 위치 합니다. 남측 왕복4차선 도로와 북서측 왕복2차선 도로와 접. <a href='https://blog.naver.com/non7676/223727743751' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해시아파트경매 율하동 율현마을동원로얄듀크1차 33평형 경매</b><span class='rsrc'>블로그</span></div><div class='rq'>김해시 아파트 경매 율현마을동원로얄듀크1차 33평형 경매 입찰 법원등록사무소 마스터부동산 다온경매 매수신청대리 등록 마스터공인중개사사무소 김병우 소장입니다. 아래 명함을 누르시면 전화 상담... <a href='https://blog.naver.com/kbw3800/223725701330' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▲</h4><div class='spark'><div class='tb'><div class='tbar' style='height:41px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/02</div></div><div class='tb'><div class='tbar' style='height:48px'></div><div class='tm'>26/03</div></div><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/04</div></div><div class='tb'><div class='tbar' style='height:48px'></div><div class='tm'>26/05</div></div><div class='tb'><div class='tbar' style='height:45px'></div><div class='tm'>26/06</div></div></div><div class='fine'>3억 1,150 → 3억 1,350</div></div>
+    </article>
+    <article class="card">
+      <div class="tline"><span class="rank">10</span><span class="cname">갑오마을5단지부영</span>
+        <span class="score">66.1점</span></div>
+      <div class="badges"><span class="badge good">🔥 저평가 上</span></div>
+      <div class="region">김해시 대청동</div>
+      <div class="meta">506동 4/15 · 남향 · 전용 80㎡(30.9평) · 2002년·24년차</div>
+      <div class="price"><span class="p">매매 1억 2,500</span><span class="uv good">실거래 대비 +13%</span></div>
+      <div class="ana">실거래 중위 1억 4,300</div>
+      <div class="scores"><div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:59%"></span></span><span class="sv">59</span></div><div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:63%"></span></span><span class="sv">63</span></div>
+        <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="sv">80</span></div><div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:63%"></span></span><span class="sv">63</span></div></div>
+      <div class="facts">🚗 통근 <b>14.2분</b> · 🏫 계동초등학교 142m · 🧸 어린이집 <b>22</b></div>
+      <div class="actions"><a class="btn btn-pri" href="https://new.land.naver.com/houses?articleNo=2633786796" target="_blank">네이버 매물</a>
+        <a class="btn btn-text" id="tgl10" onclick="toggle(10)">상세 ▼</a></div>
+      <div class='detail' id='detail10'><h4>호가 분석 · 동일평형 최근 실거래</h4><table class='trades'><tr><th>거래일</th><th>거래가</th><th>vs 호가</th></tr><tr><td>2026.04.18</td><td>1억 3,000</td><td style='color:var(--good)'>-4%</td></tr><tr><td>2026.04.13</td><td>1억 5,800</td><td style='color:var(--good)'>-21%</td></tr><tr><td>2026.02.12</td><td>1억 2,500</td><td style='color:var(--good)'>+0%</td></tr></table><div class='ddim'><b>디딤돌</b> 추정 · 대출 <b>8,750만</b>(LTV 70%) · 필요현금 약 <b>3,750만</b><div class='fine'>※ 가정치 · 한도·금리·본인 무주택/소득요건은 별도 확인</div></div><h4 class='mt'>주변 육아 인프라 · 지도</h4><div class='map' id='map10' data-lat='35.18377518868585' data-lng='128.7958768232822' data-markers="[{&quot;name&quot;: &quot;계동초등학교&quot;, &quot;x&quot;: 128.79510881098957, &quot;y&quot;: 35.18489055514685, &quot;type&quot;: &quot;school&quot;}, {&quot;name&quot;: &quot;장유예크어린이집&quot;, &quot;x&quot;: 128.796482032362, &quot;y&quot;: 35.1835427114523, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;지아어린이집&quot;, &quot;x&quot;: 128.79630294109657, &quot;y&quot;: 35.182986620766684, &quot;type&quot;: &quot;daycare&quot;}, {&quot;name&quot;: &quot;별뜨랑어린이집&quot;, &quot;x&quot;: 128.797512221458, &quot;y&quot;: 35.183866275295, &quot;type&quot;: &quot;daycare&quot;}]"><a class='mapfb' href='https://map.kakao.com/link/map/갑오마을5단지부영,35.18377518868585,128.7958768232822' target='_blank'>🗺️ 카카오맵에서 보기</a></div><div class='infra'>🏫 <b>계동초등학교 142m</b> · 🧸 어린이집 <b>22</b> · 🛒 마트 <b>4</b> · 🏥 병원 <b>35</b></div><h4 class='mt'>실거주자 리뷰 (네이버 블로그·카페)</h4><div class='rev'><div class='rtop'><b>【아파트 매매】경남 김해시 대청동 갑오마을 부영5단지...</b><span class='rsrc'>블로그</span></div><div class='rq'>경남 김해시 대청동에 위치한 갑오마을5단지부영 비확장 세대입니다. 해당 단지는 2002년 8월 사용승인을 받은 400세대 규모의 아파트로, 지역난방과 계단식 구조를 갖추고 있어 실거주 만족도가 높은 <a href='https://blog.naver.com/hyunju8836/224310813489' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해시 대청동 갑오마을 5단지 부영 아파트 경매 정보</b><span class='rsrc'>블로그</span></div><div class='rq'>43평) 31평형 최저가 123,900,000원 (70%) 년식/층수 2002년 13층중/2층 물건종류 아파트 창우너지방법원 아파트경매- 김해시 대청동 갑오마을 5단지 부영 아파트 김해시 대청동 갑 <a href='https://blog.naver.com/lala820/224138682277' target='_blank'>원문</a></div></div><div class='rev'><div class='rtop'><b>김해 샷시 갑오마을5단지부영6차 아파트 김해시 샷시 샤시 창호</b><span class='rsrc'>블로그</span></div><div class='rq'>제가 직접 경험한 완벽한 단열과 튼튼한 시공을 자랑하는 곳의 리얼 후기를 지금부터 신나게... 김해 샷시 갑오마을5단지부영6차 아파트 김해시 샷시 샤시 창호 창문 교체 공장 직영 업체 추천 도매가  <a href='https://blog.naver.com/unstble62109/224135383544' target='_blank'>원문</a></div></div><h4 class='mt'>단지 6개월 시세 추이 ▼</h4><div class='spark'><div class='tb'><div class='tbar' style='height:58px'></div><div class='tm'>26/01</div></div><div class='tb'><div class='tbar' style='height:18px'></div><div class='tm'>26/02</div></div><div class='tb'><div class='tbar' style='height:51px'></div><div class='tm'>26/04</div></div></div><div class='fine'>1억 4,800 → 1억 4,400</div></div>
+    </article>
+  
+  <div class='sec'>⭐ 누적 관심 매물 비교</div><div class='hint'>매일 ‘최선호’로 뽑힌 매물을 누적·추적</div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">월산마을8단지부영</span>
+            <span class="csz">80㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm best"><div class="cv">77</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+16%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">17분</div><div class="cl">통근</div></div>
+            <div class="cm bestg"><div class="cv">1억 500</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 500</span>
+            → <b>1억 500</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">석봉마을4단지부영</span>
+            <span class="csz">80㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">76</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+10%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">15분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">1억 3,800</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 3,800</span>
+            → <b>1억 3,800</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">대동빌라트1단지</span>
+            <span class="csz">84㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">74</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+13%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">12분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">2억 1,500</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">2억 1,500</span>
+            → <b>2억 1,500</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">합성한일타운</span>
+            <span class="csz">84㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">72</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+27%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">25분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">1억 9,300</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 9,300</span>
+            → <b>1억 9,300</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">진해자은벚꽃마을주공</span>
+            <span class="csz">75㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">71</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+10%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">14분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">1억 9,000</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 9,000</span>
+            → <b>1억 9,000</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">진해석동푸르지오</span>
+            <span class="csz">84㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">70</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+14%</div><div class="cl">저평가</div></div>
+            <div class="cm best"><div class="cv">11분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">2억 5,500</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">2억 5,500</span>
+            → <b>2억 5,500</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">삼성타운</span>
+            <span class="csz">84㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">69</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+20%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">25분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">1억 8,000</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 8,000</span>
+            → <b>1억 8,000</b> </div>
+        </div>
+        <div class="cmprow">
+          <div class="ch"><span class="cnm">갑오마을5단지부영</span>
+            <span class="csz">80㎡</span><span class="st track">추적중·1일째</span></div>
+          <div class="cmet">
+            <div class="cm "><div class="cv">66</div><div class="cl">종합</div></div>
+            <div class="cm"><div class="cv">+12%</div><div class="cl">저평가</div></div>
+            <div class="cm "><div class="cv">14분</div><div class="cl">통근</div></div>
+            <div class="cm "><div class="cv">1억 2,500</div><div class="cl">현재가</div></div>
+          </div>
+          <div class="cchg">첫등장 06-27 <span class="ol">1억 2,500</span>
+            → <b>1억 2,500</b> </div>
+        </div>
+</div>
+<div id='sheetbg' class='sheetbg' onclick='closeSheet()'></div><div id='sheet' class='sheet'><div class='handle'></div><div class='sheeth'><span>날짜별 보고서</span><span class='x' onclick='closeSheet()'>닫기</span></div><div class='slist'><a class='drow today' href='2026-06-27.html'><div><b>오늘 · 06-27</b><div class='dsm'>창원 통근권 Top10 · 저평가 21</div></div><i>›</i></a></div></div>
+<footer><b>출처</b> · 매물: 네이버부동산 / 실거래: 국토교통부 / 통근·지도·인프라: 카카오 / 후기: 네이버 검색.<br>
+<b>면책</b> · 공개 데이터 자동 분석 참고자료. 호가·매물은 변동·허위 가능. <b>반드시 현장확인·중개사 상담 후 판단하세요.</b> 가격·점수·디딤돌은 추정치.<br>
+생성 2026-06-27 · 창원 통근권(성산·의창·진해·마산·김해) 자동 분석.</footer>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=39b1263383dd80e303f878366eba37d5&autoload=false"></script><script>if(window.kakao&&kakao.maps){kakao.maps.load(function(){});}</script>
+<script>
+function toggle(i){var d=document.getElementById('detail'+i);var o=d.style.display==='block';
+d.style.display=o?'none':'block';document.getElementById('tgl'+i).textContent=o?'상세 ▼':'접기 ▲';if(!o)initMap(i);}
+var _m={};function initMap(i){if(_m[i]||!window.kakao||!window.kakao.maps||!kakao.maps.Map)return;
+var el=document.getElementById('map'+i);if(!el)return;var lat=parseFloat(el.dataset.lat),lng=parseFloat(el.dataset.lng);
+if(isNaN(lat))return;var map=new kakao.maps.Map(el,{center:new kakao.maps.LatLng(lat,lng),level:4});
+new kakao.maps.Marker({map:map,position:new kakao.maps.LatLng(lat,lng)});
+try{JSON.parse(el.dataset.markers||'[]').forEach(function(p){var mk=new kakao.maps.Marker({map:map,position:new kakao.maps.LatLng(p.y,p.x)});
+var iw=new kakao.maps.InfoWindow({content:'<div style=\'padding:3px 7px;font-size:11px\'>'+p.name+'</div>'});
+kakao.maps.event.addListener(mk,'mouseover',function(){iw.open(map,mk)});kakao.maps.event.addListener(mk,'mouseout',function(){iw.close()});});}catch(e){}_m[i]=map;}
+function openSheet(){document.getElementById('sheet').classList.add('open');document.getElementById('sheetbg').classList.add('open');}
+function closeSheet(){document.getElementById('sheet').classList.remove('open');document.getElementById('sheetbg').classList.remove('open');}
+</script>
+</body></html>

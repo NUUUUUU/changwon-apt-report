@@ -1,0 +1,38 @@
+# 창원 아파트 리포트 — 설정 (하드코딩 금지, 여기서 조정)
+
+workplace:
+  name: 신신사 창원1공장
+  lng: 128.6962
+  lat: 35.1981
+
+filters:
+  trade_types: [매매, 전세]
+  max_price_manwon: 30000        # 3억 (만원)
+  max_commute_min: 30
+  area_exclusive_max_m2: 85      # 디딤돌 면적요건(전용)
+  supply_pyeong_min: 30          # 30평대(공급)
+  supply_pyeong_max: 39
+  build_year_exclude_before: 1991  # 35년 초과 제외 (2026 기준)
+  old_renovate_year: 2001          # 25년 이상(이 연도 이하)은 올수리 or 저평가'상'만
+  undervalue_high_pct: 10          # 저평가 '상' 기준(%)
+
+scoring:
+  weights: { price: 30, commute: 25, childcare: 25, amenity: 20 }
+
+diversity:
+  per_complex_max: 1
+  cooldown_days: 3
+
+# 통근권 후보 구/시 — 동은 자동 확장 + 직장 거리로 사전필터 후 수집
+regions_gu:
+  - { name: 성산구,     cortarNo: "4812300000", lawd: "48123" }
+  - { name: 의창구,     cortarNo: "4812100000", lawd: "48121" }
+  - { name: 진해구,     cortarNo: "4812900000", lawd: "48129" }
+  - { name: 마산회원구, cortarNo: "4812700000", lawd: "48127" }
+  - { name: 마산합포구, cortarNo: "4812500000", lawd: "48125" }
+  - { name: 김해시,     cortarNo: "4825000000", lawd: "48250" }
+commute_radius_km: 14   # 동 중심~직장 직선거리 사전필터(통근 30분 프록시)
+
+molit:
+  # 국토부 LAWD_CD(법정동 5자리): 성산·의창·진해·마산회원·마산합포·김해
+  lawd_codes: ["48123", "48121", "48129", "48127", "48125", "48250"]

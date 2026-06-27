@@ -1,0 +1,7 @@
+curl_cffi>=0.15.0
+beautifulsoup4>=4.12
+lxml
+pyyaml
+requests
+python-dotenv
+jinja2

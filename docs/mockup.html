@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>창원 아파트 일일 리포트 — 목업</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0066cc; --blue-focus:#0071e3; --sky:#2997ff;
+  --ink:#1d1d1f; --muted80:#333333; --muted48:#7a7a7a;
+  --hairline:#e0e0e0; --divider:#f0f0f0;
+  --canvas:#ffffff; --parchment:#f5f5f7; --pearl:#fafafc; --tile:#272729;
+  --good:#1d7a3e; --good-bg:#eaf5ec; --warn:#9a6b00; --warn-bg:#fdf4e3;
+  --font:"SF Pro Text","SF Pro Display",system-ui,-apple-system,BlinkMacSystemFont,"Inter",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--font);background:var(--parchment);color:var(--ink);
+  font-size:17px;line-height:1.47;letter-spacing:-.011em;font-weight:400}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+
+/* global nav (Apple thin black bar) */
+.gnav{background:#000;color:#fff;height:44px;display:flex;align-items:center}
+.gnav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.gnav b{font-size:12px;font-weight:600;letter-spacing:-.01em}
+.gnav span{font-size:12px;color:#cccccc}
+
+/* sub nav frosted */
+.subnav{position:sticky;top:0;z-index:10;background:rgba(245,245,247,.8);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--divider)}
+.subnav .wrap{display:flex;align-items:center;gap:16px;height:56px;flex-wrap:wrap}
+.subnav h1{font-size:21px;font-weight:600;letter-spacing:.005em}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:13px;color:var(--muted80);background:var(--pearl);
+  border:1px solid var(--divider);border-radius:9999px;padding:6px 13px;white-space:nowrap}
+
+/* hero dashboard */
+.hero{padding:52px 0 30px}
+.eyebrow{color:var(--muted48);font-size:14px;letter-spacing:-.012em}
+.hero h2{font-size:40px;font-weight:600;line-height:1.08;letter-spacing:-.02em;margin:6px 0 22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;padding:22px 24px}
+.stat .n{font-size:38px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.stat .n.blue{color:var(--blue)} .stat .n.good{color:var(--good)}
+.stat .l{font-size:14px;color:var(--muted48);margin-top:8px;letter-spacing:-.012em}
+
+/* dark one-liner tile */
+.oneliner{background:var(--tile);color:#fff;border-radius:18px;padding:26px 28px;margin-top:14px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.oneliner .hl{font-size:21px;font-weight:600;letter-spacing:-.01em}
+.oneliner .sub{color:#cccccc;font-size:15px}
+.badge{font-size:13px;font-weight:600;border-radius:9999px;padding:5px 11px;letter-spacing:-.01em;white-space:nowrap}
+.b-new{background:rgba(41,151,255,.18);color:#7cc0ff}
+.b-down{background:rgba(255,255,255,.14);color:#fff}
+
+/* section head */
+.sec{padding:34px 0 10px}
+.sec h3{font-size:24px;font-weight:600;letter-spacing:-.018em}
+.sec .hint{color:var(--muted48);font-size:14px;margin-top:3px}
+
+/* listing card (Apple store-utility-card) */
+.card{background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+  padding:24px;margin-bottom:14px}
+.card.alt{background:var(--pearl)}
+.crow{display:flex;gap:18px;align-items:flex-start}
+.rank{font-size:30px;font-weight:600;color:var(--muted48);letter-spacing:-.02em;min-width:42px;line-height:1.1}
+.cmain{flex:1;min-width:0}
+.tline{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.cname{font-size:22px;font-weight:600;letter-spacing:-.018em}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.b-good{background:var(--good-bg);color:var(--good)}
+.b-new2{background:#e7f0fb;color:var(--blue)}
+.b-warn{background:var(--warn-bg);color:var(--warn)}
+.meta{color:var(--muted48);font-size:14px;margin-top:5px;letter-spacing:-.012em}
+.price{margin-top:14px;display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.price .p{font-size:28px;font-weight:600;letter-spacing:-.02em}
+.price .tt{font-size:15px;color:var(--muted80)}
+.analysis{font-size:14px;color:var(--muted48);margin-top:4px;letter-spacing:-.012em}
+.analysis em{font-style:normal;color:var(--good);font-weight:600}
+.analysis .up{color:#b23b3b;font-weight:600}
+
+/* score bars */
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:9px 22px;margin-top:16px}
+.sbar{display:flex;align-items:center;gap:9px}
+.sbar .lab{font-size:13px;color:var(--muted80);width:34px;letter-spacing:-.01em}
+.track{flex:1;height:6px;background:var(--divider);border-radius:9999px;overflow:hidden}
+.fill{height:100%;background:var(--blue);border-radius:9999px}
+.sbar .v{font-size:13px;color:var(--muted48);width:24px;text-align:right}
+
+.facts{display:flex;gap:16px;flex-wrap:wrap;margin-top:15px;font-size:14px;color:var(--muted80);
+  border-top:1px solid var(--divider);padding-top:14px;letter-spacing:-.012em}
+.facts b{font-weight:600;color:var(--ink)}
+
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.btn{font-size:15px;border-radius:9999px;padding:9px 18px;cursor:pointer;border:1px solid transparent;
+  text-decoration:none;display:inline-block;letter-spacing:-.012em;transition:transform .08s}
+.btn:active{transform:scale(.96)}
+.btn-pri{background:var(--blue);color:#fff}
+.btn-ghost{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-text{background:transparent;color:var(--blue);padding:9px 6px}
+
+/* expanded detail */
+.detail{margin-top:18px;border-top:1px solid var(--divider);padding-top:18px;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:26px}
+.detail h4{font-size:15px;font-weight:600;margin-bottom:9px;letter-spacing:-.012em}
+.kv{font-size:14px;color:var(--muted80);line-height:1.9;letter-spacing:-.012em}
+.kv b{color:var(--ink);font-weight:600}
+table.trades{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+table.trades th,table.trades td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--divider);color:var(--muted80)}
+table.trades th{color:var(--muted48);font-weight:600}
+.ddim{background:var(--parchment);border-radius:11px;padding:14px 16px;font-size:14px;margin-top:10px;line-height:1.8}
+.ddim b{font-weight:600}
+/* map mock */
+.map{position:relative;height:200px;border-radius:14px;overflow:hidden;border:1px solid var(--hairline);
+  background:
+    linear-gradient(0deg,rgba(0,0,0,.03),rgba(0,0,0,.03)),
+    repeating-linear-gradient(0deg,#eef0f3 0 39px,#e7eaee 39px 40px),
+    repeating-linear-gradient(90deg,#eef0f3 0 39px,#e7eaee 39px 40px);}
+.pin{position:absolute;transform:translate(-50%,-100%);font-size:12px;font-weight:600;
+  background:#fff;border:1px solid var(--hairline);border-radius:9999px;padding:3px 9px;white-space:nowrap;letter-spacing:-.01em}
+.pin.home{background:var(--blue);color:#fff;border-color:var(--blue)}
+.pin.dot{padding:3px 8px}
+.maplabel{position:absolute;right:10px;bottom:9px;font-size:11px;color:var(--muted48);background:rgba(255,255,255,.85);padding:2px 8px;border-radius:9999px}
+.infra-list{font-size:14px;line-height:1.95;color:var(--muted80);letter-spacing:-.012em}
+.infra-list b{color:var(--ink);font-weight:600}
+.infra-list .d{color:var(--blue)}
+
+/* near-miss */
+.nm .card{background:var(--parchment);border-style:dashed}
+
+/* footer */
+footer{background:var(--parchment);border-top:1px solid var(--divider);margin-top:40px;padding:34px 0 60px}
+footer .note{font-size:12px;color:var(--muted48);line-height:1.7;letter-spacing:-.01em}
+footer .note b{color:var(--muted80)}
+
+@media(max-width:720px){
+  .stats{grid-template-columns:1fr 1fr}
+  .hero h2{font-size:32px}
+  .detail{grid-template-columns:1fr}
+  .scores{grid-template-columns:1fr}
+}
+.mocktag{position:fixed;right:12px;bottom:12px;background:var(--ink);color:#fff;font-size:11px;
+  padding:6px 12px;border-radius:9999px;opacity:.85;z-index:50}
+</style>
+</head>
+<body>
+
+<nav class="gnav"><div class="wrap"><b>창원 아파트 리포트</b><span>2026 · 06 · 27 (토)</span></div></nav>
+
+<div class="subnav"><div class="wrap">
+  <h1>오늘의 추천</h1>
+  <div class="chips">
+    <span class="chip">통근 ≤30분</span>
+    <span class="chip">매매·전세 ≤3억</span>
+    <span class="chip">30평대</span>
+    <span class="chip">디딤돌</span>
+    <span class="chip">35년↓ 제외</span>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- HERO DASHBOARD -->
+  <section class="hero">
+    <div class="eyebrow">신신사 창원1공장 통근권 · 성산구·의창구</div>
+    <h2>오늘 조건에 맞는<br>아파트 10곳을 골랐어요.</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">38</div><div class="l">검증 통과 매물</div></div>
+      <div class="stat"><div class="n blue">10</div><div class="l">Top 추천 단지</div></div>
+      <div class="stat"><div class="n good">5</div><div class="l">저평가 ‘상’ (실거래 −10%↓)</div></div>
+    </div>
+    <div class="oneliner">
+      <span class="hl">오늘의 한 줄</span>
+      <span class="badge b-new">🆕 신규 6</span>
+      <span class="badge b-down">🔽 가격인하 3</span>
+      <span class="sub">통근 15분 내 4곳 · 전일 추천 단지 3일 쿨다운 적용</span>
+    </div>
+  </section>
+
+  <!-- TOP RANKING -->
+  <section class="sec"><h3>매력도 Top 10</h3>
+    <div class="hint">가격·통근·육아·상권 가중 종합점수 순 · 단지당 1매물 (다양성 규정)</div></section>
+
+  <!-- CARD #1 EXPANDED -->
+  <article class="card">
+    <div class="crow">
+      <div class="rank">1</div>
+      <div class="cmain">
+        <div class="tline">
+          <span class="cname">가음동 노블파크</span>
+          <span class="badges">
+            <span class="badge b-new2">🆕 신규</span>
+            <span class="badge b-good">🔥 저평가 上</span>
+          </span>
+        </div>
+        <div class="meta">103동 12/20층 · 남향 · 전용 84㎡(34평) · 2009년 (17년차) · 올수리</div>
+
+        <div class="price">
+          <span class="p">매매 2억 8,700</span>
+          <span class="tt">종합 89점</span>
+        </div>
+        <div class="analysis">실거래 3억 2,000 대비 <em>−10.3%</em> · 평당 845만 · 동일평형 최근거래 26.05 3.20억 <em>▼</em></div>
+
+        <div class="scores">
+          <div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:91%"></span></span><span class="v">91</span></div>
+          <div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:86%"></span></span><span class="v">86</span></div>
+          <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="v">94</span></div>
+          <div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="v">78</span></div>
+        </div>
+
+        <div class="facts">
+          <span>🚗 통근 <b>14분</b></span>
+          <span>🏫 가음초 <b>도보 5분</b></span>
+          <span>🧸 어린이집 <b>5곳</b></span>
+          <span>🏥 소아과 <b>2곳</b></span>
+          <span>🛒 마트 <b>도보 7분</b></span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-pri" href="#">네이버 매물 보기</a>
+          <a class="btn btn-ghost" href="#">지도에서 보기</a>
+          <a class="btn btn-text" href="#">실거래 추이</a>
+          <a class="btn btn-text" href="#">상세 접기 ▲</a>
+        </div>
+
+        <!-- DETAIL -->
+        <div class="detail">
+          <div>
+            <h4>호가 분석 · 동일평형 최근 실거래</h4>
+            <table class="trades">
+              <tr><th>거래일</th><th>층</th><th>거래가</th><th>vs 호가</th></tr>
+              <tr><td>26.05.18</td><td>15층</td><td>3억 2,000</td><td style="color:var(--good)">−10.3%</td></tr>
+              <tr><td>26.03.22</td><td>7층</td><td>3억 1,500</td><td style="color:var(--good)">−8.9%</td></tr>
+              <tr><td>25.12.10</td><td>11층</td><td>3억 3,000</td><td style="color:var(--good)">−13.0%</td></tr>
+            </table>
+            <div class="ddim">
+              <b>디딤돌 대출</b> · 전용 84㎡ ✓ · 가격 2.87억 ✓ &nbsp;→&nbsp; 추정 대출 <b>2.0억</b>(LTV 70%) · 필요현금 약 <b>8,700만</b>
+              <div style="color:var(--muted48);font-size:12px;margin-top:4px">※ 가정치 · 본인 무주택·소득요건 별도 확인</div>
+            </div>
+            <h4 style="margin-top:16px">단지 6개월 시세 추이</h4>
+            <div class="kv">3.30억 → 3.25억 → 3.20억 &nbsp;<span style="color:var(--good)">최근 소폭 하락 ▼</span></div>
+          </div>
+          <div>
+            <h4>주변 육아 인프라</h4>
+            <div class="map">
+              <span class="pin home" style="left:50%;top:55%">노블파크</span>
+              <span class="pin dot" style="left:30%;top:34%">가음초</span>
+              <span class="pin dot" style="left:66%;top:40%">햇살어린이집</span>
+              <span class="pin dot" style="left:44%;top:74%">가음유치원</span>
+              <span class="pin dot" style="left:72%;top:66%">성산소아과</span>
+              <span class="maplabel">카카오맵 (임베드 예정)</span>
+            </div>
+            <div class="infra-list" style="margin-top:12px">
+              🏫 <b>가음초등학교</b> <span class="d">도보 5분</span> · 배정교<br>
+              🧸 <b>가음유치원</b> <span class="d">도보 4분</span> (국공립)<br>
+              🧸 <b>햇살·새싹 어린이집</b> 외 3곳 <span class="d">반경 400m</span><br>
+              🏥 <b>성산소아청소년과</b> <span class="d">도보 6분</span><br>
+              🌳 <b>가음정공원·키즈카페</b> <span class="d">도보 8분</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CARD #2 (collapsed) -->
+  <article class="card">
+    <div class="crow">
+      <div class="rank">2</div>
+      <div class="cmain">
+        <div class="tline"><span class="cname">상남동 토월그대가</span>
+          <span class="badges"><span class="badge b-new2">🔽 가격인하</span></span></div>
+        <div class="meta">105동 8/15층 · 남동향 · 전용 84㎡(33평) · 2004년 (22년차)</div>
+        <div class="price"><span class="p">매매 2억 9,500</span><span class="tt">종합 87점</span></div>
+        <div class="analysis">실거래 3억 1,500 대비 <em>−6.3%</em> · 평당 868만 · 전일 대비 <span class="up">호가 −500만 ▼</span></div>
+        <div class="scores">
+          <div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="v">82</span></div>
+          <div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="v">80</span></div>
+          <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="v">88</span></div>
+          <div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="v">90</span></div>
+        </div>
+        <div class="facts"><span>🚗 통근 <b>18분</b></span><span>🏫 상남초 <b>도보 7분</b></span><span>🧸 어린이집 <b>4곳</b></span><span>🛒 상남시장 <b>도보 5분</b></span></div>
+        <div class="actions"><a class="btn btn-pri" href="#">네이버 매물 보기</a><a class="btn btn-ghost" href="#">지도에서 보기</a><a class="btn btn-text" href="#">상세 ▼</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CARD #3 -->
+  <article class="card">
+    <div class="crow">
+      <div class="rank">3</div>
+      <div class="cmain">
+        <div class="tline"><span class="cname">사파동 한일유앤아이</span>
+          <span class="badges"><span class="badge b-good">🔥 저평가 上</span></span></div>
+        <div class="meta">102동 15/18층 · 남향 · 전용 84㎡(34평) · 2007년 (19년차)</div>
+        <div class="price"><span class="p">매매 2억 7,800</span><span class="tt">종합 84점</span></div>
+        <div class="analysis">실거래 3억 600 대비 <em>−9.2%</em> · 평당 818만</div>
+        <div class="scores">
+          <div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:89%"></span></span><span class="v">89</span></div>
+          <div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="v">72</span></div>
+          <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:85%"></span></span><span class="v">85</span></div>
+          <div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:74%"></span></span><span class="v">74</span></div>
+        </div>
+        <div class="facts"><span>🚗 통근 <b>21분</b></span><span>🏫 사파초 <b>도보 6분</b></span><span>🧸 어린이집 <b>3곳</b></span></div>
+        <div class="actions"><a class="btn btn-pri" href="#">네이버 매물 보기</a><a class="btn btn-ghost" href="#">지도에서 보기</a><a class="btn btn-text" href="#">상세 ▼</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CARD #4 (구축 올수리) -->
+  <article class="card">
+    <div class="crow">
+      <div class="rank">4</div>
+      <div class="cmain">
+        <div class="tline"><span class="cname">반림동 럭키</span>
+          <span class="badges"><span class="badge b-good">🔥 저평가 上</span><span class="badge b-warn">올수리·32년차</span></span></div>
+        <div class="meta">3동 6/15층 · 남향 · 전용 84㎡(33평) · 1994년 (32년차) · 전체 올수리</div>
+        <div class="price"><span class="p">매매 2억 6,500</span><span class="tt">종합 80점</span></div>
+        <div class="analysis">실거래 3억 100 대비 <em>−12.0%</em> · 평당 779만 · <span style="color:var(--muted48)">연식 25년+ 이나 올수리 → 후보</span></div>
+        <div class="scores">
+          <div class="sbar"><span class="lab">가격</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="v">95</span></div>
+          <div class="sbar"><span class="lab">통근</span><span class="track"><span class="fill" style="width:66%"></span></span><span class="v">66</span></div>
+          <div class="sbar"><span class="lab">육아</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="v">80</span></div>
+          <div class="sbar"><span class="lab">상권</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="v">70</span></div>
+        </div>
+        <div class="facts"><span>🚗 통근 <b>24분</b></span><span>🏫 반림초 <b>도보 8분</b></span><span>🧸 어린이집 <b>4곳</b></span></div>
+        <div class="actions"><a class="btn btn-pri" href="#">네이버 매물 보기</a><a class="btn btn-ghost" href="#">지도에서 보기</a><a class="btn btn-text" href="#">상세 ▼</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- NEAR MISS -->
+  <section class="sec"><h3>🔶 차선 (근접) 매물</h3>
+    <div class="hint">조건 충족이 10건 미만일 때 보수적으로만 완화 · 돈·디딤돌·연식은 유지</div></section>
+
+  <div class="nm">
+    <article class="card">
+      <div class="crow">
+        <div class="rank" style="color:#b89a3a">차</div>
+        <div class="cmain">
+          <div class="tline"><span class="cname">의창구 봉곡동 e편한세상</span>
+            <span class="badges"><span class="badge b-warn">차선 · 통근 34분 (기준+4)</span></span></div>
+          <div class="meta">전용 84㎡(34평) · 2010년 (16년차) · 남향</div>
+          <div class="price"><span class="p">매매 2억 8,000</span><span class="tt">근접 76점</span></div>
+          <div class="analysis">실거래 3억 1,000 대비 <em>−9.7%</em> · 통근만 4분 초과, 그 외 전 조건 충족</div>
+          <div class="actions"><a class="btn btn-pri" href="#">네이버 매물 보기</a><a class="btn btn-ghost" href="#">지도에서 보기</a></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</div>
+
+<footer><div class="wrap">
+  <p class="note">
+    <b>데이터 출처</b> · 매물: 네이버부동산·당근부동산(라이브 호가) / 실거래·시세: 국토교통부 실거래가·한국부동산원 / 통근·지도: 카카오 / 학교: NEIS.<br>
+    <b>면책</b> · 본 리포트는 공개 데이터를 자동 수집·분석한 참고자료입니다. 호가·매물은 실시간 변동되며 허위·중복 매물이 포함될 수 있습니다. <b>반드시 현장확인·중개사 상담 후 판단하세요.</b> 가격·점수는 추정치입니다.<br>
+    <b style="color:#b23b3b">※ 본 화면은 디자인 목업이며 표시된 단지·가격·수치는 모두 예시 데이터입니다.</b>
+  </p>
+</div></footer>
+
+<div class="mocktag">목업 · Apple design · 예시 데이터</div>
+</body>
+</html>
