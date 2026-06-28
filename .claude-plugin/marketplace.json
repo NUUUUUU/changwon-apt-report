@@ -1,0 +1,15 @@
+{
+  "name": "neureup-plugins",
+  "owner": { "name": "이승환 (느릅)" },
+  "metadata": {
+    "description": "느릅의 개인 자동화 플러그인 모음",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "changwon-apt-report",
+      "source": ".",
+      "description": "창원 통근권 아파트 일일 리포트 자동화 (매물 수집·분석·카톡·Pages)"
+    }
+  ]
+}
